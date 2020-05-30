@@ -23,7 +23,7 @@ const Calculator = props => {
                 <button className="number" onClick={props.displayValue}>2</button>
                 <button className="number" onClick={props.displayValue}>3</button>
                 <button className="operator right">+</button>
-                <button className="number" id="numero0" onClick={props.click}>0</button>
+                <button className="number" id="numero0" onClick={props.displayValue}>0</button>
                 <button className="number" onClick={props.addDot}>.</button>
                 <button className="operator right">=</button>
             </div>

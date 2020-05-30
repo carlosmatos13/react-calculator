@@ -3,43 +3,62 @@ import Calculator from './Calculator/Calculator';
 import './App.css';
 
 const App = props => {
-  const [ initialValue, setValue ] = useState("0");
+  const [calcState, setCalcState] = useState({
+    displayValue: "0",
+    operator: null,
+  });
   const displayValueHandler = (event) => {
+    const { displayValue } = calcState;
     const digit = String(event.target.textContent);
-    setValue(
-       (initialValue === "0") ? digit : initialValue + digit
-    )
+    setCalcState({
+      displayValue: (displayValue === "0") ? digit : displayValue + digit,
+      operator: null,
+    })
   }
   const clearDisplayHandler = () => {
-    setValue("0");
+    const { displayValue } = calcState;
+    setCalcState({
+      displayValue: "0",
+      operator: null,
+    });
   }
   const addDotHandler = () => {
-    if (!initialValue.includes('.')) {
-      setValue( initialValue + '.')
+    const { displayValue } = calcState;
+    if (!displayValue.includes('.')) {
+      setCalcState({
+        displayValue: displayValue + '.',
+        operator: null,
+      })
     }
   }
   const percentageHandler = () => {
-    setValue(
-      String(initialValue / 100)
-    )
+    const { displayValue } = calcState;
+    setCalcState({
+        displayValue: String( displayValue / 100 ),
+        operator: null,
+    })
   }
   const toggleSignHandler = () => {
-    setValue(
-      (initialValue.charAt(0) === '-') ? initialValue.substr(1) : '-' + initialValue
-    )
+    const { displayValue } = calcState;
+    setCalcState({
+      displayValue: (displayValue.charAt(0) === '-') ? displayValue.substr(1) : '-' + displayValue,
+      operator: null,
+    })
   }
+  // const operatorHandler = (operator) {
+
+  // }
   return (
     <div className="App">
-      <Calculator 
+      <Calculator
         displayValue={displayValueHandler}
         clearDisplay={clearDisplayHandler}
         addDot={addDotHandler}
         percentage={percentageHandler}
         toggleSign={toggleSignHandler}
-        display={initialValue}/>
+        display={calcState.displayValue} />
     </div>
   );
 }
 
 export default App;
- 
