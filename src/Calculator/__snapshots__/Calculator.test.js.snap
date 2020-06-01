@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calculator component matches the snapshot 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="container"
+  >
+    <div
+      id="calculator"
+    >
+      <div
+        id="display"
+      >
+        <div
+          className="scaletext-wrapper"
+          style={
+            Object {
+              "fontSize": "inherit",
+              "height": "100%",
+              "overflow": "hidden",
+              "width": "100%",
+            }
+          }
+        >
+          <p
+            fontSize="inherit"
+          >
+            0
+          </p>
+        </div>
+      </div>
+      <div
+        className="grid-container"
+      >
+        <button
+          className="operator"
+          onClick={[Function]}
+        >
+          AC
+        </button>
+        <button
+          className="operator"
+          onClick={[Function]}
+        >
+          ±
+        </button>
+        <button
+          className="operator"
+          onClick={[Function]}
+        >
+          %
+        </button>
+        <button
+          className="operator right"
+          onClick={[Function]}
+        >
+          ÷
+        </button>
+        <button
+          className="number"
+          onClick={[Function]}
+        >
+          7
+        </button>
+        <button
+          className="number"
+          onClick={[Function]}
+        >
+          8
+        </button>
+        <button
+          className="number"
+          onClick={[Function]}
+        >
+          9
+        </button>
+        <button
+          className="operator right"
+          onClick={[Function]}
+        >
+          x
+        </button>
+        <button
+          className="number"
+          onClick={[Function]}
+        >
+          4
+        </button>
+        <button
+          className="number"
+          onClick={[Function]}
+        >
+          5
+        </button>
+        <button
+          className="number"
+          onClick={[Function]}
+        >
+          6
+        </button>
+        <button
+          className="operator right"
+          onClick={[Function]}
+        >
+          -
+        </button>
+        <button
+          className="number"
+          onClick={[Function]}
+        >
+          1
+        </button>
+        <button
+          className="number"
+          onClick={[Function]}
+        >
+          2
+        </button>
+        <button
+          className="number"
+          onClick={[Function]}
+        >
+          3
+        </button>
+        <button
+          className="operator right"
+          onClick={[Function]}
+        >
+          +
+        </button>
+        <button
+          className="number"
+          id="numero0"
+          onClick={[Function]}
+        >
+          0
+        </button>
+        <button
+          className="number"
+          onClick={[Function]}
+        >
+          .
+        </button>
+        <button
+          className="operator right"
+          onClick={[Function]}
+        >
+          =
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
