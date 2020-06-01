@@ -3,13 +3,29 @@ import Calculator from './Calculator/Calculator';
 import './App.css';
 
 const App = props => {
-  const [initialValue, setValue] = useState("0");
+// Set initial states for the values and operator
+  const [initialValue, setValue] = useState('0');
   const [prevValue, setPrevValue] = useState(null);
   const [hasOperator, setHasOperator] = useState(false);
   const [operator, setOperator] = useState(null);
 
-  const displayValueHandler = (event) => {
-    const digit = String(event.target.textContent);
+// Formats Current value
+let formattedValue = parseFloat(initialValue).toLocaleString('en-US', {
+  useGrouping: true,
+  maximumFractionDigits: 5
+})  
+
+//Object with functions to operate 
+  const calculate = {
+    '/': (prevValue, nextValue) => prevValue / nextValue,
+    '*': (prevValue, nextValue) => prevValue * nextValue,
+    '+': (prevValue, nextValue) => prevValue + nextValue,
+    '-': (prevValue, nextValue) => prevValue - nextValue,
+    '=': (nextValue) => nextValue
+  }
+
+// Display current value on screen
+  const displayValueHandler = (digit) => {
     if (hasOperator) {
       setValue(digit)
       setHasOperator(false)
@@ -19,8 +35,7 @@ const App = props => {
       )
     }
   }
-
-
+// Clears display and reset states
   const clearDisplayHandler = () => {
     setValue("0");
     setPrevValue(null);
@@ -28,59 +43,45 @@ const App = props => {
     setOperator(null);
   }
 
-
+// This function handles decimal values 
   const addDotHandler = () => {
-    if (hasOperator) {
-
-    }
     if (!initialValue.includes('.')) {
       setValue(initialValue + '.')
+      setHasOperator(false)
     }
   }
-
-
+// Calculate Percentage of Current Value
   const percentageHandler = () => {
     setValue(
       String(initialValue / 100)
     )
   }
 
-
+// Toggle sign of current value
   const toggleSignHandler = () => {
-    setValue(
-      (initialValue.charAt(0) === '-') ? initialValue.substr(1) : '-' + initialValue
-    )
+    if (initialValue !== '0') {
+      setValue((initialValue.charAt(0) === '-')
+      ? initialValue.substr(1)
+      : '-' + initialValue
+    )}
   }
 
-
-  const calculate = {
-    '/': (prevValue, nextValue) => prevValue / nextValue,
-    '*': (prevValue, nextValue) => prevValue * nextValue,
-    '+': (prevValue, nextValue) => prevValue + nextValue,
-    '-': (prevValue, nextValue) => prevValue - nextValue,
-    '=': (prevValue, nextValue) => nextValue
-  }
-
-
-  const operatorHandler = (event) => {
-    const nextOperator = event.target.textContent;
+// This function takes current operator and previous value ands sets current value with result
+  const operatorHandler = (nextOperator) => {
     const nextValue = parseFloat(initialValue)
-
-
+    
     if (prevValue == null) {
       setPrevValue(nextValue)
-    } else if (setHasOperator) {
+    } else if (operator) {
       const currentValue = parseFloat(prevValue) || 0;
-      const result = calculate[operator](prevValue, currentValue);
+      const result = calculate[operator](currentValue, nextValue);
       setPrevValue(result)
       setValue(String(result))
     }
 
-
     setHasOperator(true);
     setOperator(nextOperator);
   }
-
 
   return (
     <div className="App">
@@ -91,7 +92,7 @@ const App = props => {
         percentage={percentageHandler}
         toggleSign={toggleSignHandler}
         operator={operatorHandler}
-        display={initialValue} />
+        display={formattedValue} />
     </div>
   );
 }
