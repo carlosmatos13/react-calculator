@@ -73,8 +73,7 @@ let formattedValue = parseFloat(initialValue).toLocaleString('en-US', {
     if (prevValue == null) {
       setPrevValue(nextValue)
     } else if (operator) {
-      const currentValue = parseFloat(prevValue) || 0;
-      const result = calculate[operator](currentValue, nextValue);
+      const result = calculate[operator](prevValue, nextValue);
       setPrevValue(result)
       setValue(String(result))
     }
