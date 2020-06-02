@@ -2,19 +2,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # React Calculator
 
-Simple calculator build with React using React Hooks
+Simple calculator build with [React.js](https://github.com/facebook/react) using [React Hooks](https://reactjs.org/docs/hooks-intro.html), and inspired by the MacOS Calculator.
 
-### Installing
+### Preview
 
-```
-npm install
-```
+![Preview](Screenshot_1.png)
 
-### Run the app 
+### Running locally
 
-```
-npm start
-```
+1. Clone this repo
+2. Type cd ac-react-calculator to enter the project folder
+3. Run npm install and install dependencies
+4. Run npm start and visit localhost:3000
+
+### Build
+
+1. Run npm run build
+2. The compiled version will be in /build/
 
 ## Author
 
