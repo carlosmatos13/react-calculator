@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Simple calculator build with [React.js](https://github.com/facebook/react) using [React Hooks](https://reactjs.org/docs/hooks-intro.html), and inspired by the MacOS Calculator.
 
+### Live Demo
+
+Check it out on https://react-calculator-c69ee.firebaseapp.com/
+
 ### Preview
 
 ![Preview](Screenshot_1.png)
